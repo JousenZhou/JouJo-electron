@@ -1,63 +1,73 @@
-# vite-electron-quick
-👻 A fast Simple Vite2 Vue3 and Electron 11.x template.
+# electron-vite-vue
 
-⚡️ If you want to **fast** create a `Vite 2 + Vue 3 + Electron 11.x` project:
+🥳 Really simple `Electron` + `Vue` + `Vite` boilerplate.
 
-🚀 Why not use this?
+<!-- [![awesome-vite](https://awesome.re/mentioned-badge.svg)](https://github.com/vitejs/awesome-vite) -->
+<!-- [![Netlify Status](https://api.netlify.com/api/v1/badges/ae3863e3-1aec-4eb1-8f9f-1890af56929d/deploy-status)](https://app.netlify.com/sites/electron-vite/deploys) -->
+<!-- [![GitHub license](https://img.shields.io/github/license/caoxiemeihao/electron-vite-vue)](https://github.com/electron-vite/electron-vite-vue/blob/main/LICENSE) -->
+<!-- [![GitHub stars](https://img.shields.io/github/stars/caoxiemeihao/electron-vite-vue?color=fa6470)](https://github.com/electron-vite/electron-vite-vue) -->
+<!-- [![GitHub forks](https://img.shields.io/github/forks/caoxiemeihao/electron-vite-vue)](https://github.com/electron-vite/electron-vite-vue) -->
+[![GitHub Build](https://github.com/electron-vite/electron-vite-vue/actions/workflows/build.yml/badge.svg)](https://github.com/electron-vite/electron-vite-vue/actions/workflows/build.yml)
+[![GitHub Discord](https://img.shields.io/badge/chat-discord-blue?logo=discord)](https://discord.gg/sRqjYpEAUK)
 
-## quick install
+## Features
 
+📦 Out of the box  
+🎯 Based on the official [template-vue-ts](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-vue-ts), less invasive  
+🌱 Extensible, really simple directory structure  
+💪 Support using Node.js API in Electron-Renderer  
+🔩 Support C/C++ native addons  
+🖥 It's easy to implement multiple windows  
+
+## Quick Start
+
+```sh
+npm create electron-vite
 ```
 
-npx create-vite-electron <project_name>
+<!-- [![quick-start](https://asciinema.org/a/483731.svg)](https://asciinema.org/a/483731) -->
 
-yarn create vite-electron <project_name>
+![electron-vite-vue.gif](/electron-vite-vue.gif)
 
+## Debug
+
+![electron-vite-react-debug.gif](https://github.com/electron-vite/electron-vite-react/blob/main/electron-vite-react-debug.gif?raw=true)
+
+## Directory
+
+```diff
++ ├─┬ electron
++ │ ├─┬ main
++ │ │ └── index.ts    entry of Electron-Main
++ │ └─┬ preload
++ │   └── index.ts    entry of Preload-Scripts
+  ├─┬ src
+  │ └── main.ts       entry of Electron-Renderer
+  ├── index.html
+  ├── package.json
+  └── vite.config.ts
 ```
 
-## run
+<!--
+## Be aware
 
-- yarn
+🚨 By default, this template integrates Node.js in the Renderer process. If you don't need it, you just remove the option below. [Because it will modify the default config of Vite](https://github.com/electron-vite/vite-plugin-electron-renderer#config-presets-opinionated).
 
-- yarn dev
+```diff
+# vite.config.ts
 
-- yarn build
+export default {
+  plugins: [
+-   // Use Node.js API in the Renderer-process
+-   renderer({
+-     nodeIntegration: true,
+-   }),
+  ],
+}
+```
+-->
 
-## change log
+## FAQ
 
-#### 210331
-- Update `rollup-plugin-esbuild` version.
-#### 210219
-- resolve #6
-- change vite config file (alias => resolve.alias)
-- current version: 
-    - vite 2.0.1
-    - electron 11.2.3
-
-#### 210113
-- fix Vite2 config bugs
-- vue-router next use `hash mode` instead of `history mode`
-
-#### 210108
-- use Vite2
-- use Electron 11.x
-
-#### 201029
-- fix build bug
-- if build slowly, you can use electron mirror
-
-#### 201026
-- vite update, update `vite.config.ts` file
-- add third lib `element-plus` import globally
-- please note when using **NODE MODULE**, may need to change `vite.config.ts -> optimizeDeps.allowNodeBuiltins`
-
-## 原因
-
-- **vite 的快速发展以及更新，让其他能与之配合的项目各显神通，为什么不来试一试呢？**
-- vite 处于 beta 状态，目前还没有适合的脚手架与 electron 11.x 版本搭配使用
-- 业务上原本使用的 electron-vue 框架，由于使用的 electron 以及 webpack 版本较低，升级很麻烦。于是计划使用新的方案探索可能性。
-- 使用 electron 的业务，是为数不多可以不考虑兼容性的业务，能够在业务中使用最新的框架是不可多得的机会。
-
-## 使用 3rd lib tips
-
-- **第三方库都可能会与 vite 以及 electron 框架本身造成冲突，请谨慎选择。**
+- [C/C++ addons, Node.js modules - Pre-Bundling](https://github.com/electron-vite/vite-plugin-electron-renderer#dependency-pre-bundling)
+- [dependencies vs devDependencies](https://github.com/electron-vite/vite-plugin-electron-renderer#dependencies-vs-devdependencies)

@@ -1,26 +1,23 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "jsx": "react",
-    "esModuleInterop": true,
-    "sourceMap": true,
-    "baseUrl": "./",
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "strict": true,
-    "types": [
-      "vite/client",
-      "node"
-    ],
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "noEmit": true,
     "paths": {
-      "@/*": ["src/render/*", "src/main/*"],
-      "root/*": ["/*"]
-    },
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true
+      "@/*": ["./src/*"],
+    }
   },
-  "include": [
-    "src/**/*"
-  ],
+  "include": ["src"],
+  "references": [
+    { "path": "./tsconfig.node.json" }
+  ]
 }

@@ -19,55 +19,55 @@ import {Plus} from '@element-plus/icons-vue'
 export default class App extends mixins() {
     data: any[] = [
         {
-            label: '独立站（cross-border）',
+            label: '🐱 独立站（cross-border）',
+            children: [{label: '建站'}, {label: '部署'}]
+        },
+        {
+            label: '🐱 机器人（robot）',
             children: [
-                {label: 'web', children: [{label: '建站'}, {label: '部署'}]},
-                // {label: '小程序'},
-                // {label: 'app'}
+                {label: '🐱 插件市场'},
+                {label: '🐱 基础配置'},
+                {label: '🐱 脚本（script）'},
             ]
         },
         {
-            label: '机器人（robot）',
+            label: '🐱 AI智能',
             children: [{label: '2',}]
         },
         {
-            label: 'AI智能',
-            children: [{label: '2',}]
-        },
-        {
-            label: '橱窗',
+            label: '🐱 橱窗',
             children: [{label: 'sku',}]
         },
         {
-            label: '物流',
+            label: '🐱 物流',
             children: [{label: 'sku',}]
         },
         {
-            label: '仓库',
+            label: '🐱 仓库',
             children: [{label: 'sku',}]
         },
         {
-            label: '数据库（mysql）',
+            label: '🐱 数据库（mysql）',
             children: [{label: 'sku',}]
         },
         {
-            label: '接口api',
+            label: '🐱 接口api',
             children: [{label: 'sku',}]
         },
         {
-            label: '推流',
+            label: '🐱 推流',
             children: [{label: 'sku',}]
         },
         {
-            label: '媒体',
+            label: '🐱 媒体',
             children: [{label: 'sku',}]
         },
         {
-            label: '活动页（share）',
+            label: '🐱 活动页（share）',
             children: [{label: 'sku',}]
         },
         {
-            label: '自定义模块',
+            label: '🐱 自定义模块',
             children: [{label: 'sku',}]
         },
 

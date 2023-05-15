@@ -15,7 +15,9 @@
         <!--容器-->
         <div class="layout-right">
             <!--头部-->
-            <header class="layout-header"/>
+            <header class="layout-header">
+                <tags-view :routes="routes"/>
+            </header>
             <!--主要内容-->
             <div class="layout-content">
                 <router-view/>
@@ -29,12 +31,14 @@ import {Options, mixins} from 'vue-class-component';
 import userInfo from '@/business-components/user-info/index.vue'
 import search from '@/business-components/search-box/index.vue'
 import leftMenu from '@/business-components/left-menu/index.vue'
+import {baseRouter} from '@/router';
 
 @Options({
     name: 'Layout',
     components: {userInfo, search, leftMenu}
 })
 export default class App extends mixins() {
+    routes = baseRouter;
 
 }
 </script>
@@ -61,6 +65,7 @@ export default class App extends mixins() {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    background: linear-gradient(#f0f7ff, white 200px);
 
     .layout-header {
       height: 40px;
@@ -69,8 +74,7 @@ export default class App extends mixins() {
     .layout-content {
       flex: 1;
       overflow: hidden;
-      background: #181A26;
-      border-radius: 20px 0 0 0;
+      //background: white;
     }
   }
 }

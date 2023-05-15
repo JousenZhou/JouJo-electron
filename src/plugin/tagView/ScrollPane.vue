@@ -63,15 +63,21 @@ export default {
 .scroll-container {
     white-space: nowrap;
     position: relative;
-    overflow: hidden;
+    //overflow: hidden;
     width: 100%;
+    height: 100%;
 }
 </style>
 <style lang="less">
 .scroll-container {
     .el-scrollbar__wrap {
-        overflow: hidden !important;
+        //overflow: hidden !important;
         margin: 0 !important;
+        height: 100%;
+        overflow: visible;
+    }
+    .el-scrollbar__view{
+        height: 100%;
     }
 }
 </style>

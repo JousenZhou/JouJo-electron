@@ -1,6 +1,6 @@
-import vuex from './store';
+import vuex from './store.js';
 import index from './index.vue';
-import redirect from './redirect';
+import redirect from './redirect.vue';
 export default function({ store, router }) {
     return {
         install: (Vue) => {

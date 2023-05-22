@@ -32,7 +32,20 @@ export default class App extends mixins() {
         },
         {
             label: '🐱 AI智能',
-            children: [{label: '2',}]
+            children: [
+                {
+                    label: '🐱 Stable Diffusion',
+                    children: [
+                        {
+                            label: '🐱 lora',
+                            children: [
+                                {label: '🐱 训练'},
+                                {label: '🐱 模型库'},
+                            ]
+                        },
+                    ]
+                }
+            ]
         },
         {
             label: '🐱 橱窗',

@@ -51,7 +51,7 @@ export function ElectronChannel(props: ElectronChannelConfig): any {
                                 console.log('win 未绑定')
                                 return
                             }
-                            const res = await faker(data)
+                            const res = await faker.bind(this)(data)
                             windowBrowser.webContents.send(props.name, {
                                 task,
                                 result: res
@@ -67,11 +67,11 @@ export function ElectronChannel(props: ElectronChannelConfig): any {
             constructor() {
                 super();
                 // 接受统一函数再分发
-                ipcMain.handle(props.name, async (event, {task, data}) => {
+                ipcMain.handle(props.name, async (event, {task, result:data}) => {
                     const result = taskMap.get(task);
                     if (!result) return {status: false, msg: `[${task}]任务未注册`}
                     try {
-                        return {status: true, result: await result(data)}
+                        return {status: true, result: await result.bind(this)(result)}
                     } catch (e) {
                         return {status: false, result: e}
                     }

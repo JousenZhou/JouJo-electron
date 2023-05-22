@@ -5,9 +5,9 @@
             <ul class="check-list">
                 <li v-for="(item) in checklist" :key="item.value">
                     <span><i :class="checkValue?.[item.value]?'success':''"/>{{ item.label }}</span>
-                    <span v-if="checkValue?.[item.value]">{{ typeof checkValue?.[item.value] === "boolean" ? '已安装' : checkValue?.[item.value]}}</span>
+                    <span v-if="checkValue?.[item.value]">{{ typeof checkValue?.[item.value] === "boolean" ? '已安装' : checkValue?.[item.value] }}</span>
                     <el-link style="font-size: 12px" v-else type="danger">
-                        <span>未安装</span>
+                        <span @click="install(item)">未安装</span>
                     </el-link>
                 </li>
             </ul>
@@ -20,7 +20,7 @@
                     <span><i :class="item.status?'start':'stop'"/>{{ item.label }}</span>
                     <el-icon size="15" color="#d5cdcd" style="cursor:pointer;">
                         <VideoPause v-if="item.status"/>
-                        <VideoPlay v-else/>
+                        <VideoPlay v-else @click="runScript(item)"/>
                     </el-icon>
                 </li>
             </ul>
@@ -49,7 +49,7 @@ export default class App extends mixins() {
 
     // 正在执行的脚本
     script = [
-        {label: '微信chatGPT', id: 1, status: false},
+        {label: '微信chatGPT', id: 9, status: false},
         {label: 'QQchatGPT', id: 2, status: false}
     ]
 
@@ -60,8 +60,19 @@ export default class App extends mixins() {
         this.checkValue = result
     }
 
-    mounted() {
-        this.getEnv().then();
+    // 安装
+    async install() {
+        console.log('安装环境')
+        const {status, result} = await channelExample.installRobotEnv()
+    }
+
+    // 运行脚本
+    async runScript(item){
+        const {status, result} = await channelExample.robotRunScript(item.id)
+    }
+
+    async mounted() {
+        await this.getEnv()
     }
 }
 </script>

@@ -39,11 +39,11 @@ export function ElectronChannel(props: ElectronChannelConfig): any {
                     if (characteristic === "send") {
                         const {fields} = value
                         const faker = constructor.prototype[field]
-                        constructor.prototype[field] = async function (data: any[]) {
+                        constructor.prototype[field] = async function (...data: any[]) {
                             return new Promise(async (resolve, reject) => {
                                 ipcRenderer.invoke(props.name, {
                                     task,
-                                    result: await faker(data)
+                                    result: await faker(...data)
                                 }).then(resolve).catch(reject)
                             })
                         }

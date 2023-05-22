@@ -2,6 +2,7 @@ import {app, BrowserWindow, shell, ipcMain} from 'electron'
 import {release} from 'node:os'
 import {join} from 'node:path'
 import Channel from './channel'
+import path from 'path'
 
 // The built directory structure
 //
@@ -54,6 +55,15 @@ async function createWindow() {
             contextIsolation: false,
         },
         autoHideMenuBar: true
+    })
+
+
+    win.webContents.session.on('will-download', (event, item, webContents) => {
+        event.preventDefault();
+        const filePath = path.join(app.getPath('downloads'), item.getFilename());
+        console.log('filePath', filePath);
+        // item.setSavePath('filePath');
+        //...
     })
 
     // 绑定win

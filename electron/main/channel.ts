@@ -20,17 +20,17 @@ const robot_path: string = __dirname; //|| path.join(__dirname, 'robot')
 const git: string = 'https://gitee.com/JousenZhou/robot-srcrpt.git';
 
 const script = (common: string, args: string[], callback: any, cwd?: string) => new Promise((resolve, reject) => {
-    const node_cmd = spawn(common, args, {
-        cwd: cwd || robot_path,
-        silent: false
-    })
-    const text = new TextDecoder('utf-8');
-    // 结束
-    node_cmd.stdout.on('close', resolve)
-    node_cmd.stdout.on('error', reject)
-    node_cmd.stdout.on('data', data => {
-        callback(text.decode(data))
-    })
+    // const node_cmd = spawn(common, args, {
+    //     cwd: cwd || robot_path,
+    //     silent: false
+    // })
+    // const text = new TextDecoder('utf-8');
+    // // 结束
+    // node_cmd.stdout.on('close', resolve)
+    // node_cmd.stdout.on('error', reject)
+    // node_cmd.stdout.on('data', data => {
+    //     callback(text.decode(data))
+    // })
 })
 
 

@@ -3,6 +3,8 @@ import store from '@/store/index';
 import router from '@/router/index';
 import ElementUI from 'element-plus';
 import 'element-plus/dist/index.css'
+import { createPinia } from 'pinia';
+
 export default {
     install: (Vue: any) => {
         /** 挂载原型方法*/
@@ -13,6 +15,7 @@ export default {
         // };
         Vue.use(router)
         Vue.use(store)
+        Vue.use(createPinia())
         Vue.use(ElementUI)
         Vue.use(tagsView({store, router}));
     }

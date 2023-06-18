@@ -1,5 +1,5 @@
 import {createRouter, createWebHashHistory, Router} from 'vue-router'
-
+import authority from './authority'
 
 export const baseRouter = [
     {
@@ -27,26 +27,40 @@ export const baseRouter = [
                 },
                 component: () => import('@/views/home/index.vue')
             },
+
             {
-                path: 'robot',
-                name: 'robot',
-                meta: {
-                    title: '🐱 机器人(robot)/脚本',
-                },
-                component: () => import('@/views/robot/index.vue')
-            }
+                path: '404',
+                name: '404',
+                meta: {title: '🐱 404'},
+                component: () => import('@/views/404/index.vue')
+            },
+
+            // {
+            //     path: 'robot',
+            //     name: 'robot',
+            //     meta: {
+            //         title: '🐱 机器人(robot)/脚本',
+            //     },
+            //     component: () => import('@/views/robot/index.vue')
+            // }
         ]
     },
     {
-        path:'/',
-        redirect: '/erp/robot',
+        path: '/',
+        redirect: '/login',
     }
 ];
 
 
 const router: Router = createRouter({
+    // @ts-ignore
+    scrollBehavior: (to, from, savedPosition) => {
+        if (savedPosition) return savedPosition
+        return {x: 0, y: 0};
+    },
     history: createWebHashHistory(),
     routes: baseRouter,
 })
+router.beforeEach(authority);
 
 export default router

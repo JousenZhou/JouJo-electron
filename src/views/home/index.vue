@@ -1,5 +1,6 @@
 <template>
-    <iframe style="width: 100%;height: 100%" src="https://www.birme.net/?target_width=512&target_height=712"/>
+    <span>HOME</span>
+    <!--    <iframe style="width: 100%;height: 100%" src="https://www.birme.net/?target_width=512&target_height=712"/>-->
 </template>
 
 <script>

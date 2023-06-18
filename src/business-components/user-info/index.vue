@@ -2,7 +2,7 @@
     <div class="avatar">
         <el-avatar shape="square" class="avatar-icon" :size="36"/>
         <el-space class="avatar-info" direction="vertical" :size="0" alignment="normal">
-            <span class="avatar-name">JousenZhou/染血猫🐱</span>
+            <span class="avatar-name">JouJo/染血猫🐱</span>
             <span class="avatar-job">administrators</span>
         </el-space>
     </div>

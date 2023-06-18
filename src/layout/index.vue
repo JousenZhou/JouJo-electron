@@ -55,7 +55,7 @@ export default class App extends mixins() {
     border-right: 1px rgb(230, 230, 230) solid;
 
     .layout-left-step {
-      padding: 0 14px 20px 14px;
+      padding: 0 14px 12px 14px;
       border-bottom: rgb(240, 240, 240) 1px solid;
     }
   }

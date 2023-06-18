@@ -24,7 +24,7 @@ export default class App extends mixins() {
 </script>
 <style scoped lang="less">
 .search-box {
-  margin-top: 20px;
+  //margin-top: 20px;
 
   .search {
 
@@ -36,7 +36,7 @@ export default class App extends mixins() {
     }
 
     :deep(.el-input__inner) {
-      height: 36px;
+      height: 30px;
       background: rgba(0, 0, 0, 0);
     }
   }

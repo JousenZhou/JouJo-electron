@@ -21,11 +21,11 @@ import {useUserStore} from '@/store'
 
 const router = useRouter();
 const userStore = useUserStore();
-const account = ref('');
-const pwd = ref('')
+const account = ref('JousenZhou');
+const pwd = ref('888888')
 
 const login = async () => {
-    const res = await http.post('/account/login', {username: 'root', password: '888888'})
+    const res = await http.post('/account/login', {username: account.value, password: pwd.value})
     const {code, token} = res;
     if (code !== 200) return;
     localstorage.set('Authorization', token);

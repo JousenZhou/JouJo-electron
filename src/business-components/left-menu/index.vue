@@ -85,7 +85,7 @@ const data = ref([
 
 // 添加菜单
 const appendMenu = () => {
-
+    console.log(1);
 }
 
 </script>
